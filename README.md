@@ -13,7 +13,7 @@ golang  vagrant for web server
 ```
 nginx
 go
-mysql
+PostgreSQL
 redis
 ```
 
