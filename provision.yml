@@ -1,0 +1,24 @@
+---
+- hosts: vagrant
+  sudo: true
+  user: vagrant
+  roles:
+    - common
+    - postgresql
+    - redis
+    - nginx
+    - go
+  vars:
+    user:
+      vagrant:
+        username: vagrant
+        groupname: vagrant
+        home: /home/vagrant
+    local:
+      dir: /usr/local
+      bin: /user/local/bin
+      src: /usr/local/src
+    redis:
+      version: 2.8.14
+    nginx:
+      version: 1.7.4

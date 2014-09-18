@@ -1,0 +1,17 @@
+---
+- name: install repo
+  yum: name=http://yum.postgresql.org/9.3/redhat/rhel-6-x86_64/pgdg-redhat93-9.3-1.noarch.rpm state=present
+
+- name: install
+  yum: name={{ item }} state=present
+  with_items:
+    - postgresql93
+    - postgresql93-server
+    - postgresql93-contrib
+    - postgresql93-devel
+
+- name: restart
+  service: name=postgresql state=restarted
+
+- name: Initial database
+  command: service postgresql initdb creates=/var/lib/pgsql/data/postgresql.conf

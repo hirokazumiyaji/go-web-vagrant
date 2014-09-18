@@ -1,0 +1,6 @@
+---
+- name: Download source
+  get_url: url=https://storage.googleapis.com/golang/go1.3.1.linux-amd64.tar.gz dest=/tmp
+
+- name: Unarchive
+  unarchive: src=/tmp/go1.3.1.linux-amd64.tar.gz dest={{ local.dir }} copy=no creates={{ local.dir }}/go
